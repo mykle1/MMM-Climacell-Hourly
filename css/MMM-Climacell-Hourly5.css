@@ -7,7 +7,7 @@
 @import url('https://fonts.googleapis.com/css?family=Julee');
 
 .MMM-Climacell-Hourly .header {
-  color: yellow;               /* Header color. */
+  color: #FFFFFF;               /* Header color. */
 }
 .MMM-Climacell-Hourly .image {              /* icon size */
    width: 1.75%;
@@ -16,13 +16,18 @@
    margin-bottom: -10px;
 }
 
-.MMM-Climacell-Hourly .now {
+.MMM-Climacell-Hourly .sunrise {
+  color: #FFFFFF;               /* Sunrise and sunset color. */
+  font-family: Julee;
+}
+
+.MMM-Climacell-Hourly .currentConditions {
   color: #FFFFFF;               /* Current text color. Default is white. */
   font-family: Julee;
 /*  font-size: .6em; */
 }
 
-.MMM-Climacell-Hourly .daily {
+.MMM-Climacell-Hourly .allHours {
   color: #FFFFFF;               /* days of the week color. Default is white. */
   font-family: Julee;
 /*  font-size: .6em; */

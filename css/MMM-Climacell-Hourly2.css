@@ -7,7 +7,7 @@
  @import url('https://fonts.googleapis.com/css?family=Muli:600');
 
 .MMM-Climacell-Hourly .header {
-  color: yellow;               /* Header color. */
+  color: #FFFFFF;               /* Header color. */
 }
 
 .MMM-Climacell-Hourly .image {              /* icon size */
@@ -17,14 +17,19 @@
    margin-bottom: -10px;
 }
 
-.MMM-Climacell-Hourly .now {
+.MMM-Climacell-Hourly .sunrise {
+  color: #FFFFFF;               /* Sunrise and sunset color. */
+  font-family: Muli;
+}
+
+.MMM-Climacell-Hourly .currentConditions {
   color: #FFFFFF;               /* Current text color. Default is white. */
   font-family: Muli;
 /*  font-size: .6em; */
 }
 
-.MMM-Climacell-Hourly .daily {
-  color: #FFFFFF;               /* Days of the week and hi/lo temp color. Default is white. */
+.MMM-Climacell-Hourly .allHours {
+  color: #FFFFFF;               /* Default is white. */
   font-family: Muli;
 /*  font-size: .6em; */
 }
