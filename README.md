@@ -1,6 +1,8 @@
 ## MMM-Climacell-Hourly
 
-* Hourly weather module using the Climacell api
+* Hourly weather module using the NEW Climacell v4 api
+
+* You will need a new API key from Climacell
 
 ## Good-bye bottom_bar (Well, not really)
 
@@ -13,13 +15,13 @@
 
 * Default white
 
-![](images/1.png)
+![](images/2.png)
 
 ## Installation and requirements
 
 * `git clone https://github.com/mykle1/MMM-Climacell-Hourly` into the `~/MagicMirror/modules` directory.
 
-* Free API key at `https://www.climacell.co/weather-api/pricing/` (Required)
+* Free API key at `https://www.climacell.co` (Required)
 
 * No dependencies needed! No kidding!
 
@@ -31,12 +33,12 @@
     module: "MMM-Climacell-Hourly",
     position: "bottom_bar", // designed for bottom_bar(best) thirds should be good too
     config: {
-        apiKey: "Your FREE api key", // Get at https://www.climacell.co/weather-api/pricing/
+        apiKey: "Your API key", // Get FREE API key from ClimaCell.com
         ownTitle: "Current Condition is ",
-        tempUnits: "us", // us = F or si = C
-        lat: '42.123456', // Your latitude
-        lon: '-72.123456', // Your longitude
-        css: "2", // 1-6
+        tempUnits: "imperial", // imperial or metric
+        lat: '41.7749', // Chicago
+        lon: '-87.4194', // Chicago
+        css: "2",
         playSounds: "no",
         useHeader: false, // true if you want a header
         header: "Your header",

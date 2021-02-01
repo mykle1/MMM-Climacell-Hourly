@@ -1,13 +1,11 @@
 /* Magic Mirror
- * Module: MMM-Climacell-Hourly
+ * Module: MMM-BMW=CC
  *
  * By Mykle1
  *
- * MIT Licensed
  */
 const NodeHelper = require('node_helper');
 const request = require('request');
-
 
 module.exports = NodeHelper.create({
 
@@ -15,83 +13,25 @@ module.exports = NodeHelper.create({
         console.log("Starting node_helper for: " + this.name);
     },
 
-    getWeather: function(url) {
-        var options = {
+    getCurrent: function(url) { // hourly
+        request({
             method: 'GET',
-            url: 'https://api.climacell.co/v3/weather/forecast/hourly',
-            qs: {
-                apikey: this.config.apiKey,
-                fields: [
-                    'temp',
-                    'feels_like',
-                    'precipitation',
-                    'wind_speed',
-                    'wind_direction',
-                    'humidity',
-                    'sunrise',
-                    'sunset',
-                    'weather_code'
-                ],
-                unit_system: this.config.tempUnits,
-                lat: this.config.lat,
-                lon: this.config.lon
-            }
-        };
-
-        var self = this;
-
-        request(options, function(error, response, body) {
-            if (error) throw new Error(error);
-            var result = JSON.parse(body);
-             var items = result.slice(0,7); // Start at 0, give me 7 objects
-            // console.log(response.statusCode); // for checking
-            self.getCurrent();
-            self.sendSocketNotification('WEATHER_RESULT', items);
-            // console.log(items);
-        });
-
-    },
-
-    getCurrent: function(url) {
-        var self = this;
-        var options = {
-            method: 'GET',
-            url: 'https://api.climacell.co/v3/weather/nowcast',
-            qs: {
-                apikey: this.config.apiKey,
-                fields: [
-                    'temp',
-                    'feels_like',
-                    'precipitation',
-                    'wind_speed',
-                    'wind_direction',
-                    'humidity',
-                    'sunrise',
-                    'sunset',
-                    'weather_code'
-                ],
-                unit_system: this.config.tempUnits,
-                lat: this.config.lat,
-                lon: this.config.lon
-            }
-        };
-        request(options, function(error, response, body) {
-            if (error) throw new Error(error);
-            //var current = []; //this.current[0] instead of just this.current
-            var result = JSON.parse(body);
-            var items = result.slice(0, 1); // // Start at 0, give me 1 object from the array
-            console.log(response.statusCode); // for checking
-            self.sendSocketNotification('CURRENT_RESULT', items);
-            // console.log(items);
+            url: "https://data.climacell.co/v4/timelines?timesteps=1h&units=" + this.config.tempUnits + "&location=" + this.config.lat + "," + this.config.lon + "&fields=temperature,temperatureApparent,precipitationType,humidity,windSpeed,windDirection,weatherCode&apikey=" + this.config.apiKey
+        }, (error, response, body) => {
+            var result = JSON.parse(body).data;
+            //var items = result.slice(0,1); // Start at 0, give me 7 objects
+            console.log(result); // check
+            var self = this;
+            self.sendSocketNotification('CURRENT_RESULT', result);
         });
     },
 
     socketNotificationReceived: function(notification, payload) {
-        if (notification === 'GET_WEATHER') {
-            this.getWeather(payload);
-        }
-        if (notification === 'CONFIG') {
+        if (notification === "CONFIG") {
             this.config = payload;
+        }
+        if (notification === 'GET_CURRENT') {
+            this.getCurrent(payload);
         }
     }
 });
