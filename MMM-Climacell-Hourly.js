@@ -128,7 +128,7 @@ Module.register("MMM-Climacell-Hourly", {
                 now.classList.add("small", "bright", "now");
                 now.innerHTML =
                     this.config.ownTitle + " &nbsp" +
-                    "<img class = image src=modules/MMM-BMW-CC/icons/" + this.config.weatherCode[current.weatherCode] + ".png>" +
+                    "<img class = image src=modules/MMM-Climacell-Hourly/icons/" + this.config.weatherCode[current.weatherCode] + ".png>" +
                     "&nbsp" +
                     Math.round(current.temperature) + "°" +
                     " &nbsp &nbsp &nbsp &nbsp " +
@@ -151,49 +151,49 @@ Module.register("MMM-Climacell-Hourly", {
 
                 // This hour
                 moment(this.current.timelines.startTime).format('h a') + " " +
-                "<img class = image src=modules/MMM-BMW-CC/icons/" +
+                "<img class = image src=modules/MMM-Climacell-Hourly/icons/" +
                 this.config.weatherCode[current.weatherCode] + ".png>" + " " +
                 Math.round(current.temperature) + "°" +
                 " &nbsp &nbsp &nbsp &nbsp &nbsp" +
 
                 // Hour 2
                 moment(this.current.timelines[0].intervals[1].startTime).format('h a') + " " +
-                "<img class = image src=modules/MMM-BMW-CC/icons/" +
+                "<img class = image src=modules/MMM-Climacell-Hourly/icons/" +
                 this.config.weatherCode[this.current.timelines[0].intervals[1].values.weatherCode] + ".png>" + " " +
                 Math.round(current.temperature) + "°" +
                 " &nbsp &nbsp &nbsp &nbsp &nbsp" +
 
                 // // Hour 3
                 moment(this.current.timelines[0].intervals[2].startTime).format('h a') + " " +
-                "<img class = image src=modules/MMM-BMW-CC/icons/" +
+                "<img class = image src=modules/MMM-Climacell-Hourly/icons/" +
                 this.config.weatherCode[this.current.timelines[0].intervals[2].values.weatherCode] + ".png>" + " " +
                 Math.round(current.temperature) + "°" +
                 " &nbsp &nbsp &nbsp &nbsp &nbsp" +
 
                 // // Hour 4
                 moment(this.current.timelines[0].intervals[3].startTime).format('h a') + " " +
-                "<img class = image src=modules/MMM-BMW-CC/icons/" +
+                "<img class = image src=modules/MMM-Climacell-Hourly/icons/" +
                 this.config.weatherCode[this.current.timelines[0].intervals[3].values.weatherCode] + ".png>" + " " +
                 Math.round(current.temperature) + "°" +
                 " &nbsp &nbsp &nbsp &nbsp &nbsp" +
 
                 // // Hour 5
                 moment(this.current.timelines[0].intervals[4].startTime).format('h a') + " " +
-                "<img class = image src=modules/MMM-BMW-CC/icons/" +
+                "<img class = image src=modules/MMM-Climacell-Hourly/icons/" +
                 this.config.weatherCode[this.current.timelines[0].intervals[4].values.weatherCode] + ".png>" + " " +
                 Math.round(current.temperature) + "°" +
                 " &nbsp &nbsp &nbsp &nbsp &nbsp" +
 
                 // // Hour 6
                 moment(this.current.timelines[0].intervals[5].startTime).format('h a') + " " +
-                "<img class = image src=modules/MMM-BMW-CC/icons/" +
+                "<img class = image src=modules/MMM-Climacell-Hourly/icons/" +
                 this.config.weatherCode[this.current.timelines[0].intervals[5].values.weatherCode] + ".png>" + " " +
                 Math.round(current.temperature) + "°" +
                 " &nbsp &nbsp &nbsp &nbsp &nbsp" +
 
                 // // Hour 7
                 moment(this.current.timelines[0].intervals[6].startTime).format('h a') + " " +
-                "<img class = image src=modules/MMM-BMW-CC/icons/" +
+                "<img class = image src=modules/MMM-Climacell-Hourly/icons/" +
                 this.config.weatherCode[this.current.timelines[0].intervals[6].values.weatherCode] + ".png>" + " " +
                 Math.round(current.temperature) + "°" +
                 " &nbsp &nbsp &nbsp &nbsp &nbsp";
